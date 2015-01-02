@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ikgroup.persistence.SequenceDemoMapper">
+    
+    <resultMap id="sequenceDemoResultMap" type="SequenceDemo">
+        <id property="id" column="ID" />
+    </resultMap>
+
+	<insert id="insert" parameterType="SequenceDemo" keyProperty="id">
+		INSERT INTO sequence_demo (id)
+		VALUES (#{id})
+	</insert>
+
+</mapper>
