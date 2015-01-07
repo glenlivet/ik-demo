@@ -84,9 +84,14 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-web</artifactId> -->
+<!-- 			<version>${org.springframework.version}</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
+			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
 		<dependency>
@@ -154,7 +159,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.name}-${project.version}</finalName>
+		<finalName>${project.name}</finalName>
 
 		<plugins>
 			<plugin>
@@ -165,6 +170,11 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.17</version>
 			</plugin>
 		</plugins>
 	</build>

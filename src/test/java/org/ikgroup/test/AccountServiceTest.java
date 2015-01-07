@@ -1,17 +1,20 @@
 package org.ikgroup.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
 import org.ikgroup.domain.Account;
 import org.ikgroup.service.AccountService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class AccountServiceTest {
 	
 	@Test
+	@Ignore
 	public void Test() {
 		GenericXmlApplicationContext ctx;
 		ctx = new GenericXmlApplicationContext();
