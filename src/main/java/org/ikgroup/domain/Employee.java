@@ -1,17 +1,25 @@
 package org.ikgroup.domain;
 
 /**
- * 
+ * 职员
  * 
  * @author glenlivet
  *
  */
-public class Employee implements Person {
+public class Employee implements SysUser {
+	
+	public static final int STATE_LEFT = -1;
+	public static final int STATE_RETIRED = 0;
+	public static final int STATE_ON_JOB = 1;
 	
 	/**
 	 * Employee ID
 	 */
 	private String id;
+	
+	private String firstname;
+	
+	private String lastname;
 	
 	/**
 	 * format: firstname  lastname
@@ -22,6 +30,11 @@ public class Employee implements Person {
 	 * 账号
 	 */
 	private Account account; 
+	
+	/**
+	 * 状态标识
+	 */
+	private Integer stateFlag;
 
 	public String getId() {
 		return id;
@@ -45,6 +58,30 @@ public class Employee implements Person {
 
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+
+	public Integer getStateFlag() {
+		return stateFlag;
+	}
+
+	public void setStateFlag(Integer stateFlag) {
+		this.stateFlag = stateFlag;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 }

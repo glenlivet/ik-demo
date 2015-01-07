@@ -12,10 +12,10 @@ public interface AccountMapper {
 	
 	public List<Account> findAll();
 	
-	public Account findById(Long id);
+	public Account findById(long id);
 	
-	public void delete(Long id);
+	public void delete(long id);
 	
-	public Account findByUsernameAndPassword(String username, String password);
+	public Account findByUsernameAndPassword(Account account);
 
 }

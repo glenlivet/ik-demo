@@ -10,7 +10,10 @@ public interface AccountService {
 	
 	public Account save(Account account);
 	
-	public Account getById(Long id);
+	public Account findById(long id);
 	
+	public boolean isValidAccount(Account account);
+	
+	public void delete(long id);
 	
 }
