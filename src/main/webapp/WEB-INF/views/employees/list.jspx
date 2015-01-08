@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:joda="http://www.joda.org/joda/time/tags" version="2.0">
 
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
-	
-	<H1>Employee Listing</H1>
-	
+
+	<spring:message code="label_employee_list" var="labelEmployeeList" />
+	<spring:message code="label_employee_fullname"
+		var="labelEmployeeFullname" />
+	<spring:message code="label_employee_status" var="labelEmployeeStatus" />
+	<spring:message code="label_employee_account"
+		var="labelEmployeeAccount" />
+	<spring:message code="label_employee_account_status"
+		var="labelEmployeeAccountStatus" />
+
+	<head>
+		<spring:theme code="styleSheet" var="app_css" />
+		<spring:url value="${app_css}" var="app_css_url" />
+		<link rel="stylesheet" type="text/css" media="screen"
+			href="${app_css_url}" />
+	</head>
+
+	<H1>${labelEmployeeList }</H1>
+
 	<c:if test="${not empty employees }">
 		<table>
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Status</th>
-					<th>Account</th>
-					<th>AccountStatus</th>
+					<th>${labelEmployeeFullname}</th>
+					<th>${labelEmployeeStatus}</th>
+					<th>${labelEmployeeAccount}</th>
+					<th>${labelEmployeeAccountStatus}</th>
 				</tr>
 			</thead>
 			<TBODY>
