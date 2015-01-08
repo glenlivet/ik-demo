@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping("/employees")
 @Controller
@@ -20,6 +21,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 
+	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model uiModel){
 		 logger.info("listing employees");
 		 

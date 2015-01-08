@@ -22,6 +22,11 @@ public class Employee implements SysUser {
 	private String lastname;
 	
 	/**
+	 * 姓名英文首字缩写
+	 */
+	private String initials;
+	
+	/**
 	 * format: firstname  lastname
 	 */
 	private String fullname;
@@ -82,6 +87,14 @@ public class Employee implements SysUser {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public String getInitials() {
+		return initials;
+	}
+
+	public void setInitials(String initials) {
+		this.initials = initials;
 	}
 
 }

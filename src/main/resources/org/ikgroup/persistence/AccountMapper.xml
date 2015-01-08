@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ikgroup.persistence.AccountMapper">
+ 
+    <resultMap type="Account" id="accountResultMap">
+        <id property="id" column="ID" />
+        <result property="username" column="USERNAME" />
+        <result property="stateFlag" column="ACTIVE" />
+    </resultMap>
+    
+    <sql id="commonSelect">
+        SELECT 
+        ID, USERNAME, ACTIVE
+        FROM ACCOUNT
+    </sql>
+
+    <select id="findAll" resultMap="accountResultMap">
+        <include refid="commonSelect"/> 
+        WHERE ACTIVE >= 0
+    </select>
+    
+    <select id="findById" resultMap="accountResultMap" parameterType="long">
+        <include refid="commonSelect"/> 
+        WHERE ID = #{id}
+    </select>
+    
+    <select id="findByUsernameAndPassword" resultMap="accountResultMap" parameterType="map">
+        <include refid="commonSelect"/> 
+        WHERE 
+        	ACTIVE > 0 
+        	AND USERNAME = #{username} 
+        	AND PASSWORD = #{password}
+    </select>
+    
+    <insert id="insert" parameterType="Account" useGeneratedKeys="true"
+        keyProperty="id">
+        INSERT INTO ACCOUNT (USERNAME, PASSWORD) 
+        VALUES (#{username}, #{password}) 
+    </insert>
+    
+    <update id="update" parameterType="Account">
+        UPDATE ACCOUNT SET 
+        <if test="password != null">
+        PASSWORD = #{password}
+        </if>
+        <if test="stateFlag != null">
+        ACTIVE = #{stateFlag}
+        </if>
+        WHERE ID = #{id}
+    </update>
+    
+    <delete id="delete" parameterType="long">
+        UPDATE ACCOUNT SET
+        ACTIVE = -1 
+        WHERE ID = #{id}
+    </delete>
+    
+</mapper>
+
+
