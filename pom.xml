@@ -20,10 +20,10 @@
 
 	<repositories>
 		<repository>
-			<id>jboss-public-repository-group</id>  
-          <name>JBoss Public Maven Repository Group</name>  
-          <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>  
- 
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+
 		</repository>
 	</repositories>
 
@@ -166,7 +166,16 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator-annotation-processor</artifactId>
 			<version>4.1.0.Final</version>
+			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jta</artifactId>
+			<version>3.9.3</version>
+			<scope>runtime</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -183,9 +192,9 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
-				<version>6.1.17</version>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.0.M0</version>
 			</plugin>
 		</plugins>
 	</build>
