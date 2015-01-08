@@ -16,10 +16,28 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<default-servlet-handler />
 
+	<!-- <beans:bean -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+	<!-- <beans:property name="prefix" value="/WEB-INF/views/" /> -->
+	<!-- <beans:property name="suffix" value=".jspx" /> -->
+	<!-- </beans:bean> -->
+
+	<!-- Add the following beans -->
+	<!-- Tiles Configuration -->
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		id="tilesViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</beans:bean>
 	<beans:bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jspx" />
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
+		id="tilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/layouts/layouts.xml</beans:value> <!-- Scan views directory for Tiles configurations -->
+				<beans:value>/WEB-INF/views/**/views.xml</beans:value>
+			</beans:list>
+		</beans:property>
 	</beans:bean>
 
 	<context:component-scan base-package="org.ikgroup.controller" />
@@ -43,7 +61,7 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<beans:bean
 		class="org.springframework.ui.context.support.ResourceBundleThemeSource"
 		id="themeSource" />
-		
+
 	<beans:bean class="org.springframework.web.servlet.theme.CookieThemeResolver"
 		id="themeResolver" p:cookieName="theme" p:defaultThemeName="standard" />
 
