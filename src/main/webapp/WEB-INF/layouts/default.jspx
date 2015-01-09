@@ -11,6 +11,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
+<!-- reset browser default styles -->
+<link rel="stylesheet" type="text/css" media="screen" 
+	href="/resources/styles/reset.min.css" />
 <spring:theme code="styleSheet" var="app_css" />
 <spring:url value="${app_css}" var="app_css_url" />
 <link rel="stylesheet" type="text/css" media="screen"
@@ -21,7 +24,7 @@
 	htmlEscape="false" />
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
-<body class="tundra spring">
+<body>
 	<div id="headerWrapper">
 		<tiles:insertAttribute name="header" ignore="true" />
 	</div>
