@@ -7,6 +7,9 @@
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 
+	<link rel="stylesheet" type="text/css" media="screen"
+			href="/resources/styles/employees/list.css" />
+
 	<spring:message code="label_employee_list" var="labelEmployeeList" />
 	<spring:message code="label_employee_fullname"
 		var="labelEmployeeFullname" />
@@ -19,7 +22,8 @@
 	<H1>${labelEmployeeList }</H1>
 
 	<c:if test="${not empty employees }">
-		<table>
+		
+		<table id="employees_list">
 			<thead>
 				<tr>
 					<th>${labelEmployeeFullname}</th>

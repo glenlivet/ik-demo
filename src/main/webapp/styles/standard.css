@@ -16,5 +16,26 @@ table, th, td {
 
 div#header {
 	min-width: 1000px;
+	height: 60px;
 	background-image: url(../images/navigation_background.png); 
+}
+
+div#wrapper {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#menu{
+	width: 120px;
+	box-shadow: 1px 0 0 0 #eee inset;
+	float: left;
+	margin-top: 10px;
+}
+
+div#main {
+	width: 860px;
+	float: left;
+	padding: 10px;
+	
 }
