@@ -11,5 +11,7 @@ public interface EmployeeService {
 	public List<Employee> findAll();
 	
 	public Employee findById(String id);
+	
+	public void save(Employee emp);
 
 }

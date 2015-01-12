@@ -6,10 +6,10 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.ikgroup.domain.Account;
 import org.ikgroup.domain.AjaxFeedback;
 import org.ikgroup.domain.Employee;
 import org.ikgroup.service.EmployeeService;
+import org.ikgroup.util.UrlUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RequestMapping("/employees")
 @Controller
@@ -34,20 +35,24 @@ public class EmployeeController {
 	private MessageSource messageSource;
 
 	@RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
-	public String update(Employee employee, Account account,
-			BindingResult bindingResult, Model uiModel,
+	public String update(Employee employee, BindingResult bindingResult, Model uiModel,
 			HttpServletRequest request, HttpServletResponse response,
-			Locale locale) {
-		logger.info("Updating contact");
+			RedirectAttributes redirectAttributes, Locale locale) {
+		logger.info("Updating employee");
 		if(bindingResult.hasErrors()){
 			uiModel.addAttribute(
 					"message",
-					new AjaxFeedback(-1, messageSource.getMessage(
+					new AjaxFeedback(AjaxFeedback.ERROR, messageSource.getMessage(
 							"employee_save_fail", new Object[] {}, locale)));
-			//TODO
+			uiModel.addAttribute("employee", employee);
+			return "employees/update";
 		}
-		
-		return null;
+		uiModel.asMap().clear();
+		redirectAttributes.addFlashAttribute("message", new AjaxFeedback(AjaxFeedback.SUCCESS, 
+				messageSource.getMessage("employee_save_success", new Object[]{}, locale)));
+		empService.save(employee);
+		return "redirect:/employees/" + UrlUtils.encodeUrlPathSegment(employee.getId().toString(), 
+				request);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
