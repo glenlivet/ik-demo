@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <!-- reset browser default styles -->
-<link rel="stylesheet" type="text/css" media="screen" 
+<link rel="stylesheet" type="text/css" media="screen"
 	href="/resources/styles/reset.min.css" />
 <spring:theme code="styleSheet" var="app_css" />
 <spring:url value="${app_css}" var="app_css_url" />
@@ -25,14 +25,16 @@
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 <body>
-	<div id="headerWrapper">
-		<tiles:insertAttribute name="header" ignore="true" />
-	</div>
-	<div id="wrapper">
-		<tiles:insertAttribute name="menu" ignore="true" />
-		<div id="main">
-			<tiles:insertAttribute name="body" />
-			<tiles:insertAttribute name="footer" ignore="true" />
+	<div id="page-wrapper">
+		<div id="headerWrapper">
+			<tiles:insertAttribute name="header" ignore="true" />
+		</div>
+		<div id="wrapper">
+			<div id="main">
+				<tiles:insertAttribute name="body" />
+				<tiles:insertAttribute name="footer" ignore="true" />
+			</div>
+			<tiles:insertAttribute name="aside" ignore="true" />
 		</div>
 	</div>
 </body>

@@ -22,4 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return empMapper.findAll();
 	}
 
+	@Override
+	public Employee findById(String id) {
+		return empMapper.findById(id);
+	}
+
 }

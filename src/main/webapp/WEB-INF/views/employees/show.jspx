@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:joda="http://www.joda.org/joda/time/tags" version="2.0">
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	
+	<link rel="stylesheet" type="text/css" media="screen"
+			href="/resources/styles/employees/show.css" />
+
+	<spring:message code="label_employee_info" var="labelEmployeeInfo" />
+	<spring:message code="label_employee_id" var="labelEmployeeId" />
+	<spring:message code="label_employee_fullname"
+		var="labelEmployeeFullname" />
+	<spring:message code="label_employee_status" var="labelEmployeeStatus" />
+	<spring:message code="label_employee_account"
+		var="labelEmployeeAccount" />
+	<spring:message code="label_employee_account_status"
+		var="labelEmployeeAccountStatus" />
+	<spring:message code="label_employee_update" var="labelEmployeeUpdate" />
+		
+	<spring:url value="/employees" var="editEmployeeUrl"/>
+	
+	<h1 id="body-title">${labelEmployeeInfo}</h1>
+	<div id="employeeInfo">
+		<table id="employee-detail">
+			<tr>
+				<td>${labelEmployeeId}</td>
+				<td>${employee.id}</td>
+			</tr>
+			<tr>
+				<td>${labelEmployeeFullname}</td>
+				<td>${employee.fullname}</td>
+			</tr>
+			<tr>
+				<td>${labelEmployeeStatus}</td>
+				<td>${employee.stateFlag}</td>
+			</tr>
+			<tr>
+				<td>${labelEmployeeAccount}</td>
+				<td>${employee.account.username}</td>
+			</tr>
+			<tr>
+				<td>${labelEmployeeAccountStatus}</td>
+				<td>${employee.account.stateFlag}</td>
+			</tr>
+		</table>
+		<a id="edit-button" href="${editEmployeeUrl}/${employee.id}?form">${labelEmployeeUpdate}</a>
+	</div>
+</div>

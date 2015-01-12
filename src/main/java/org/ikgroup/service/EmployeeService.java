@@ -9,5 +9,7 @@ import org.ikgroup.domain.Employee;
 public interface EmployeeService {
 	
 	public List<Employee> findAll();
+	
+	public Employee findById(String id);
 
 }

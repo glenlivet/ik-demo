@@ -11,6 +11,7 @@
 			href="/resources/styles/employees/list.css" />
 
 	<spring:message code="label_employee_list" var="labelEmployeeList" />
+	<spring:message code="label_employee_id" var="labelEmployeeId" />
 	<spring:message code="label_employee_fullname"
 		var="labelEmployeeFullname" />
 	<spring:message code="label_employee_status" var="labelEmployeeStatus" />
@@ -18,14 +19,17 @@
 		var="labelEmployeeAccount" />
 	<spring:message code="label_employee_account_status"
 		var="labelEmployeeAccountStatus" />
+		
+	<spring:url value="/employees" var="showEmployeeUrl"/>
 
-	<H1>${labelEmployeeList }</H1>
+	<h1 id="body-title">${labelEmployeeList }</h1>
 
 	<c:if test="${not empty employees }">
-		
+		<div id="list-wrapper">
 		<table id="employees_list">
 			<thead>
 				<tr>
+					<th>${labelEmployeeId }</th>
 					<th>${labelEmployeeFullname}</th>
 					<th>${labelEmployeeStatus}</th>
 					<th>${labelEmployeeAccount}</th>
@@ -35,7 +39,8 @@
 			<TBODY>
 				<c:forEach items="${employees }" var="employee">
 					<tr>
-						<td>${employee.fullname }</td>
+						<td>${employee.id }</td>
+						<td><a href="${showEmployeeUrl}/${employee.id}">${employee.fullname }</a></td>
 						<td>${employee.stateFlag }</td>
 						<td>${employee.account.username }</td>
 						<td>${employee.account.stateFlag }</td>
@@ -43,6 +48,9 @@
 				</c:forEach>
 			</TBODY>
 		</table>
+		
+		</div>
+		
 	</c:if>
 
 </div>

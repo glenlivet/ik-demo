@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+#body-title {
+	padding-top: 3.25em;
+	float: left;
+	clear: left;
+	width: 66%;
+	padding: 1em 5% 1em 10%;
+}
+
+#employeeInfo {
+	float: left;
+	clear: left;
+	width: 66%;
+	padding: 0 5% 3em 10%;
+}
+
+#employee-detail{
+	width: 100%;
+}
+
