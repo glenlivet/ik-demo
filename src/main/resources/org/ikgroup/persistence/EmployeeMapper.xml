@@ -6,7 +6,10 @@
     
     <resultMap id="employeeResultMap" type="Employee">
         <id property="id" column="ID"  />
+        <result property="firstname" column="FIRSTNAME" />
+        <result property="lastname" column="LASTNAME" />
         <result property="fullname" column="FULLNAME" />
+        <result property="initials" column="INITIALS" />
         <result property="stateFlag" column="STATE_FLAG" />
         <association property="account" javaType="Account">
             <id property="id" column="ACCOUNT_ID" />
@@ -16,14 +19,14 @@
     </resultMap>
     
     <select id="findAll" resultMap="employeeResultMap">
-        SELECT ID, FULLNAME, STATE_FLAG, ACCOUNT_ID,
+        SELECT ID, FULLNAME, INITIALS, STATE_FLAG, ACCOUNT_ID,
          USERNAME, ACCOUNT_STATE 
         FROM EMPLOYEE_VIEW  
         WHERE STATE_FLAG > 0
     </select>
     
     <select id="findById" resultMap="employeeResultMap" parameterType="string" >
-    	SELECT ID, FULLNAME, STATE_FLAG, ACCOUNT_ID,
+    	SELECT ID, FIRSTNAME, INITIALS, LASTNAME, FULLNAME, STATE_FLAG, ACCOUNT_ID,
          USERNAME, ACCOUNT_STATE 
         FROM EMPLOYEE_VIEW 
         WHERE ID = #{id}

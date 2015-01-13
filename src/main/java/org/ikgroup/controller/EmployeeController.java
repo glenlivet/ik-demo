@@ -30,29 +30,41 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService empService;
-	
+
 	@Autowired
 	private MessageSource messageSource;
 
 	@RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
-	public String update(Employee employee, BindingResult bindingResult, Model uiModel,
-			HttpServletRequest request, HttpServletResponse response,
+	public String update(Employee employee, BindingResult bindingResult,
+			Model uiModel, HttpServletRequest request,
+			HttpServletResponse response,
 			RedirectAttributes redirectAttributes, Locale locale) {
 		logger.info("Updating employee");
-		if(bindingResult.hasErrors()){
+		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute(
 					"message",
-					new AjaxFeedback(AjaxFeedback.ERROR, messageSource.getMessage(
-							"employee_save_fail", new Object[] {}, locale)));
+					new AjaxFeedback(AjaxFeedback.ERROR, messageSource
+							.getMessage("employee_save_fail", new Object[] {},
+									locale)));
 			uiModel.addAttribute("employee", employee);
 			return "employees/update";
 		}
 		uiModel.asMap().clear();
-		redirectAttributes.addFlashAttribute("message", new AjaxFeedback(AjaxFeedback.SUCCESS, 
-				messageSource.getMessage("employee_save_success", new Object[]{}, locale)));
+		redirectAttributes.addFlashAttribute(
+				"message",
+				new AjaxFeedback(AjaxFeedback.SUCCESS, messageSource
+						.getMessage("employee_save_success", new Object[] {},
+								locale)));
 		empService.save(employee);
-		return "redirect:/employees/" + UrlUtils.encodeUrlPathSegment(employee.getId().toString(), 
-				request);
+		return "redirect:/employees/"
+				+ UrlUtils.encodeUrlPathSegment(employee.getId().toString(),
+						request);
+	}
+
+	@RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
+	public String updateForm(@PathVariable("id") String id, Model uiModel) {
+		uiModel.addAttribute("employee", empService.findById(id));
+		return "employees/update";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

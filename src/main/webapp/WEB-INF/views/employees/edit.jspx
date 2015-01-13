@@ -11,12 +11,14 @@
 		var="labelEmployeeFirstName" />
 	<spring:message code="label_employee_last_name"
 		var="labelEmployeeLastName" />
-	<spring:message code="label_contact_birth_date"
-		var="labelContactBirthDate" />
-	<spring:message code="label_contact_description"
-		var="labelContactDescription" />
-	<spring:message code="label_contact_photo" var="labelContactPhoto" />
-	
+	<spring:message code="label_employee_initials"
+		var="labelEmployeeInitials" />
+	<spring:message code="label_employee_status" var="labelEmployeeStatus" />
+	<spring:message code="label_employee_account"
+		var="labelEmployeeAccount" />
+	<spring:message code="label_employee_account_status"
+		var="labelEmployeeAccountStatus" />
+
 	<spring:eval
 		expression="employee.id == null ? labelEmployeeNew:labelEmployeeUpdate"
 		var="formTitle" />
@@ -27,36 +29,52 @@
 			<c:if test="${not empty message}">
 				<div id="message" class="${message.type}">${message.message}</div>
 			</c:if>
-			<form:label path="firstName"> ${labelEmployeeFirstName}*
-</form:label>
-			<form:input path="firstName" />
+			<form:label path="firstname"> ${labelEmployeeFirstName}*
+			</form:label>
+			<form:input path="firstname" />
 			<div>
-				<form:errors path="firstName" cssClass="error" />
+				<form:errors path="firstname" cssClass="error" />
 			</div>
 			<p />
-			<form:label path="lastName"> ${labelEmployeeLastName}*
-</form:label>
-			<form:input path="lastName" />
+			<form:label path="lastname"> ${labelEmployeeLastName}*
+			</form:label>
+			<form:input path="lastname" />
 			<div>
-				<form:errors path="lastName" cssClass="error" />
+				<form:errors path="lastname" cssClass="error" />
 			</div>
 			<p />
 			<form:label path="initials"> ${labelEmployeeInitials}
-</form:label>
+			</form:label>
 			<form:input path="initials" />
 			<div>
 				<form:errors path="initials" cssClass="error" />
 			</div>
 			<p />
-			<form:label path="description"> ${labelEmployee}
-</form:label>
-			<form:textarea cols="60" rows="8" path="description"
-				id="contactDescription" />
+			<form:label path="stateFlag"> ${labelEmployeeStatus}
+			</form:label>
+			<form:radiobutton path="stateFlag" value="1" label="在职" />
+			<form:radiobutton path="stateFlag" value="0" label="退休" />
+			<form:radiobutton path="stateFlag" value="-1" label="离职" />
 			<div>
-				<form:errors path="description" cssClass="error" />
+				<form:errors path="stateFlag" cssClass="error" />
 			</div>
 			<p />
-			<form:hidden path="version" />
+			<form:label path="account.username"> ${labelEmployeeAccount}*
+			</form:label>
+			<form:input path="account.username" readonly="readonly"/>
+			<p />
+			<form:label path="account.stateFlag"> ${labelEmployeeAccountStatus}
+			</form:label>
+			<form:radiobutton path="account.stateFlag" value="1" label="激活" />
+			<form:radiobutton path="account.stateFlag" value="0" label="冻结" />
+			<div>
+				<form:errors path="account.stateFlag" cssClass="error" />
+			</div>
+			
+			<!-- 隐藏信息 -->
+			<form:hidden path="id" />
+			<form:hidden path="account.id" />
+			
 			<button type="submit">Save</button>
 			<button type="reset">Reset</button>
 		</form:form>

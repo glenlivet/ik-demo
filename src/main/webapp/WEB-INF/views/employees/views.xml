@@ -8,4 +8,8 @@
 	<definition extends="default" name="employees/show">
 		<put-attribute name="body" value="/WEB-INF/views/employees/show.jspx" />
 	</definition>
+
+	<definition extends="default" name="employees/update">
+		<put-attribute name="body" value="/WEB-INF/views/employees/edit.jspx" />
+	</definition>
 </tiles-definitions>

@@ -46,7 +46,7 @@
         PASSWORD = #{password}
         </if>
         <if test="stateFlag != null">
-        ACTIVE = #{stateFlag}
+        STATE_FLAG = #{stateFlag}
         </if>
         WHERE ID = #{id}
     </update>
