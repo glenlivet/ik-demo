@@ -22,7 +22,6 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<!-- <beans:property name="suffix" value=".jspx" /> -->
 	<!-- </beans:bean> -->
 
-	<!-- Add the following beans -->
 	<!-- Tiles Configuration -->
 	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
 		id="tilesViewResolver">
