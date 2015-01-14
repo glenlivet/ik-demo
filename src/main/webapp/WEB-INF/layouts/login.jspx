@@ -18,17 +18,14 @@
 <spring:url value="${app_css}" var="app_css_url" />
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${app_css_url}" />
-<!-- Get the user locale from the page context (it was set by Spring MVC's locale resolver) -->
 
 <spring:message code="application_name" var="app_name"
 	htmlEscape="false" />
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 <body>
-	<div id="page-wrapper" class="right-background">
-		<div id="headerWrapper">
-			<tiles:insertAttribute name="header" ignore="true" />
-		</div>
+	<div id="page-wrapper">
+		
 		<div id="wrapper">
 			<div id="main">
 				<tiles:insertAttribute name="body" />

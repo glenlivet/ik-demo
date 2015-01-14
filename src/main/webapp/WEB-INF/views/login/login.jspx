@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:message code="login_title" var="loginTitle" />
+	<spring:message code="label_username" var="labelUsername" />
+	<spring:message code="label_password" var="labelPassword" />
+	<spring:message code="label_button_login" var="labelButtonLogin" />
+	<spring:message code="label_en_US" var="labelEnUs" />
+	<spring:message code="label_zh_CN" var="labelZhCn" />
+
+	<spring:url value="/login" var="homeUrl" />
+	<spring:url var="loginUrl" value="/j_spring_security_check" />
+
+	<h1>${loginTitle}</h1>
+	<div id="loginBox">
+		<form name="loginForm" action="${loginUrl}" method="post">
+			<table>
+				<tr>
+					<td>${labelUsername }</td>
+					<td><input type="text" name="j_username" /></td>
+				</tr>
+				<tr>
+					<td>${labelPassword }</td>
+					<td><input type="password" name="j_password" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input name="submit"
+						type="submit" value="${labelButtonLogin}" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="lang_switch">
+		<a href="${homeUrl}?lang=en_US">${labelEnUs}</a> | <a
+			href="${homeUrl}?lang=zh_CN">${labelZhCn}</a>
+	</div>
+</div>

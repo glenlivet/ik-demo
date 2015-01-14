@@ -6,8 +6,11 @@
 
 #page-wrapper {
 	position: relative;
-	background: linear-gradient(to right, #ffffff 0%,#ffffff 66%,#e5ede8 66%,#e5ede8 100%);
 	
+}
+
+.right-background{
+	background: linear-gradient(to right, #ffffff 0%,#ffffff 66%,#e5ede8 66%,#e5ede8 100%);
 }
 
 table, th, td {
