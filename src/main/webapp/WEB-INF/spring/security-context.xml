@@ -10,7 +10,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 		<intercept-url pattern="/employees**" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/*" access="permitAll" />
 		<form-login login-page="/login"
-			authentication-failure-url="/login" default-target-url="/login" />
+			authentication-failure-url="/login" default-target-url="/employees" />
 		<logout logout-success-url="/employees" />
 	</http>
 	<authentication-manager>

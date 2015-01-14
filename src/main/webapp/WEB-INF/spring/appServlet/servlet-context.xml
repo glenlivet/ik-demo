@@ -36,6 +36,7 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 				<beans:value>/WEB-INF/layouts/layouts.xml</beans:value> 
 				<!-- Scan views directory for Tiles configurations -->
 				<beans:value>/WEB-INF/views/**/views.xml</beans:value>
+<!-- 				<beans:value>/views/**/views.xml</beans:value> -->
 			</beans:list>
 		</beans:property>
 	</beans:bean>

@@ -3,13 +3,13 @@
 <tiles-definitions>
 	
 	<definition name="login" template="/WEB-INF/layouts/login.jspx">
-<!-- 		<put-attribute name="aside" value="/WEB-INF/views/aside.jspx" /> -->
-<!-- 		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" /> -->
 	</definition>
-
+	
 	<definition name="default" template="/WEB-INF/layouts/default.jspx">
 		<put-attribute name="header" value="/WEB-INF/views/header.jspx" />
 		<put-attribute name="aside" value="/WEB-INF/views/aside.jspx" />
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
 	</definition>
+	
+	
 </tiles-definitions>

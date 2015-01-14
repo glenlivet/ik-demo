@@ -5,5 +5,5 @@
 	<definition extends="login" name="login/index">
 		<put-attribute name="body" value="/WEB-INF/views/login/login.jspx" />
 	</definition>
-
+	
 </tiles-definitions>
