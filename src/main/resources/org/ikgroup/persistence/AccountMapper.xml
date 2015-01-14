@@ -7,18 +7,18 @@
     <resultMap type="Account" id="accountResultMap">
         <id property="id" column="ID" />
         <result property="username" column="USERNAME" />
-        <result property="stateFlag" column="ACTIVE" />
+        <result property="stateFlag" column="STATE_FLAG" />
     </resultMap>
     
     <sql id="commonSelect">
         SELECT 
-        ID, USERNAME, ACTIVE
+        ID, USERNAME, STATE_FLAG
         FROM ACCOUNT
     </sql>
 
     <select id="findAll" resultMap="accountResultMap">
         <include refid="commonSelect"/> 
-        WHERE ACTIVE >= 0
+        WHERE STATE_FLAG >= 0
     </select>
     
     <select id="findById" resultMap="accountResultMap" parameterType="long">
@@ -29,7 +29,7 @@
     <select id="findByUsernameAndPassword" resultMap="accountResultMap" parameterType="map">
         <include refid="commonSelect"/> 
         WHERE 
-        	ACTIVE > 0 
+        	STATE_FLAG > 0 
         	AND USERNAME = #{username} 
         	AND PASSWORD = #{password}
     </select>
@@ -53,7 +53,7 @@
     
     <delete id="delete" parameterType="long">
         UPDATE ACCOUNT SET
-        ACTIVE = -1 
+        STATE_FLAG = -1 
         WHERE ID = #{id}
     </delete>
     

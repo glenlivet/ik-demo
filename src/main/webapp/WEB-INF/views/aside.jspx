@@ -10,9 +10,7 @@
 	
 	<nav id="nav-menu">
 		<ul>
-			<li>${menuAddEmployee }</li>
-			<li>${menuAddEmployee }</li>
-			<li>${menuAddEmployee }</li>
+			<li><a href="${addEmployeeUrl}">${menuAddEmployee }</a></li>
 		</ul>
 	</nav>
 </div>

@@ -12,4 +12,9 @@
 	<definition extends="default" name="employees/update">
 		<put-attribute name="body" value="/WEB-INF/views/employees/edit.jspx" />
 	</definition>
+
+	<definition extends="default" name="employees/create">
+		<put-attribute name="body" value="/WEB-INF/views/employees/edit.jspx" />
+	</definition>
+	
 </tiles-definitions>

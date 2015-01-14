@@ -2,6 +2,7 @@ package org.ikgroup.service;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.ikgroup.domain.Account;
 import org.ikgroup.domain.Employee;
 import org.ikgroup.pao.SequencePao;
@@ -43,11 +44,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void save(Employee emp) {
-		if(emp.getId() == null){
+		if(StringUtils.isEmpty(emp.getId().trim())){
 			//新增
 			Long id = sequencePao.getSequenceByName(SEQUENCE_KEY_EMPLOYEE);
 			String idStr = NumberUtils.longToFixedString(id, 4);
 			emp.setId(idStr);
+			if(StringUtils.isEmpty(emp.getAccount().getPassword()))
+				emp.getAccount().setPassword("123456");
 			accountMapper.insert(emp.getAccount());
 			empMapper.insert(emp);
 		} else {
