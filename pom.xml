@@ -214,6 +214,13 @@
 			<version>${tiles.version}</version>
 		</dependency>
 
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.ikgroup</groupId> -->
+<!-- 			<artifactId>ik-page</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 			<scope>runtime</scope> -->
+<!-- 		</dependency> -->
+	
 	</dependencies>
 
 	<build>

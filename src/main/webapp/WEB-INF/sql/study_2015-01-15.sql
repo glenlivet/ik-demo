@@ -38,40 +38,9 @@ LOCK TABLES `account` WRITE;
 
 INSERT INTO `account` (`id`, `username`, `password`, `state_flag`)
 VALUES
-	(2,'kikyou','kikyou',1),
-	(3,'ita','123456',1);
+	(2,'kikyou','kikyou',1);
 
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Dump of table demos
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `demos`;
-
-CREATE TABLE `demos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `val` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-LOCK TABLES `demos` WRITE;
-/*!40000 ALTER TABLE `demos` DISABLE KEYS */;
-
-INSERT INTO `demos` (`id`, `val`)
-VALUES
-	(1,1),
-	(2,1),
-	(3,2),
-	(4,2),
-	(5,NULL),
-	(6,3),
-	(7,4),
-	(8,NULL),
-	(9,5);
-
-/*!40000 ALTER TABLE `demos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -97,8 +66,7 @@ LOCK TABLES `employee` WRITE;
 
 INSERT INTO `employee` (`id`, `account_id`, `firstname`, `lastname`, `initials`, `state_flag`)
 VALUES
-	('0001',2,'Glenlivet','Kikyou','G. Kikyou',1),
-	('0003',3,'Lily','Sun','L. Sun',1);
+	('0001',2,'Glenlivet','Kikyou','G. Kikyou',1);
 
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -167,20 +135,6 @@ VALUES
 
 /*!40000 ALTER TABLE `sequence` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table sequence_demo
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sequence_demo`;
-
-CREATE TABLE `sequence_demo` (
-  `id` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
 
 
 # Replace placeholder table for employee_view with correct view syntax
