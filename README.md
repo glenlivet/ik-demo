@@ -47,7 +47,7 @@
 
 基于maven的DEBUG。其实maven已经是一个很健全的项目管理平台，它有自己的一整套项目开发模式，包括DEBUG，maven有JETTY和Tomcat插件来做这些事。我都已经实现了。
 
-以上这些技术，我都不是凭空说，我都有做例子。具体可以参见下面的链接。
+以上这些技术，我都不是凭空说，我都有做例子。具体可以参见下面的链接。<p>
 MyBatis + Spring MVC + Tiles (JSP实现) <p>  
 [ik-demo](https://github.com/glenlivet/ik-demo) <p>
 [ik-page](https://github.com/glenlivet/ik-page) <p>
