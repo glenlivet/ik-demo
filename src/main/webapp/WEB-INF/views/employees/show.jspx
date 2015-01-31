@@ -21,6 +21,8 @@
 	<spring:message code="label_employee_account_status"
 		var="labelEmployeeAccountStatus" />
 	<spring:message code="label_employee_update" var="labelEmployeeUpdate" />
+	<spring:message code="label_employee_account_balance"
+		var="labelEmployeeAccountBalance" />
 		
 	<spring:url value="/employees" var="editEmployeeUrl"/>
 	
@@ -46,6 +48,10 @@
 			<tr>
 				<td>${labelEmployeeAccountStatus}</td>
 				<td>${employee.account.stateFlag}</td>
+			</tr>
+			<tr>
+				<td>${labelEmployeeAccountBalance}</td>
+				<td>${employee.account.balance}</td>
 			</tr>
 		</table>
 		<a id="edit-button" href="${editEmployeeUrl}/${employee.id}?form">${labelEmployeeUpdate}</a>

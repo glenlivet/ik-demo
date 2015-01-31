@@ -15,19 +15,20 @@
             <id property="id" column="ACCOUNT_ID" />
             <result property="username" column="USERNAME" />
             <result property="stateFlag" column="ACCOUNT_STATE" />
+            <result property="balance" column="BALANCE" />
         </association>
     </resultMap>
     
     <select id="findAll" resultMap="employeeResultMap">
         SELECT ID, FULLNAME, INITIALS, STATE_FLAG, ACCOUNT_ID,
-         USERNAME, ACCOUNT_STATE 
+         USERNAME, ACCOUNT_STATE, BALANCE
         FROM EMPLOYEE_VIEW  
         WHERE STATE_FLAG > 0
     </select>
     
     <select id="findById" resultMap="employeeResultMap" parameterType="string" >
     	SELECT ID, FIRSTNAME, INITIALS, LASTNAME, FULLNAME, STATE_FLAG, ACCOUNT_ID,
-         USERNAME, ACCOUNT_STATE 
+         USERNAME, ACCOUNT_STATE, BALANCE
         FROM EMPLOYEE_VIEW 
         WHERE ID = #{id}
     </select>

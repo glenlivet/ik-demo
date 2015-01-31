@@ -18,6 +18,8 @@
 		var="labelEmployeeAccount" />
 	<spring:message code="label_employee_account_status"
 		var="labelEmployeeAccountStatus" />
+	<spring:message code="label_employee_account_balance"
+		var="labelEmployeeAccountBalance" />
 
 	<spring:eval
 		expression="employee.id == null ? labelEmployeeNew:labelEmployeeUpdate"
@@ -70,6 +72,14 @@
 			<div>
 				<form:errors path="account.stateFlag" cssClass="error" />
 			</div>
+			
+			<form:label path="account.balance"> ${labelEmployeeAccountBalance}
+			</form:label>
+			<form:input path="account.balance" />
+			<div>
+				<form:errors path="account.balance" cssClass="error" />
+			</div>
+			<p />
 			
 			<!-- 隐藏信息 -->
 			<form:hidden path="id" />

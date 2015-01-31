@@ -1,5 +1,9 @@
 package org.ikgroup.domain;
 
+import java.math.BigDecimal;
+
+import org.springframework.format.annotation.NumberFormat;
+
 /**
  * 账号
  * 
@@ -31,6 +35,20 @@ public class Account {
 	 * 状态标示
 	 */
 	private Integer stateFlag;
+	
+	/**
+	 * 账号余额
+	 */
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal balance = new BigDecimal(0);
+
+	public BigDecimal getBalance() {
+		return balance;
+	}
+
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
 
 	public Long getId() {
 		return id;

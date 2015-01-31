@@ -8,11 +8,12 @@
         <id property="id" column="ID" />
         <result property="username" column="USERNAME" />
         <result property="stateFlag" column="STATE_FLAG" />
+        <result property="balance" column="BALANCE" />
     </resultMap>
     
     <sql id="commonSelect">
         SELECT 
-        ID, USERNAME, STATE_FLAG
+        ID, USERNAME, STATE_FLAG, BALANCE
         FROM ACCOUNT
     </sql>
 
@@ -36,8 +37,8 @@
     
     <insert id="insert" parameterType="Account" useGeneratedKeys="true"
         keyProperty="id">
-        INSERT INTO ACCOUNT (USERNAME, PASSWORD) 
-        VALUES (#{username}, #{password}) 
+        INSERT INTO ACCOUNT (USERNAME, PASSWORD, STATE_FLAG, BALANCE) 
+        VALUES (#{username}, #{password}, #{stateFlag}, #{balance}) 
     </insert>
     
     <update id="update" parameterType="Account">
@@ -47,6 +48,9 @@
         </if>
         <if test="stateFlag != null">
         STATE_FLAG = #{stateFlag}
+        </if>
+        <if test="balance != null">
+        BALANCE = #{balance}
         </if>
         WHERE ID = #{id}
     </update>

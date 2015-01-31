@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:joda="http://www.joda.org/joda/time/tags" version="2.0">
 
@@ -8,7 +9,7 @@
 	<jsp:output omit-xml-declaration="yes" />
 
 	<link rel="stylesheet" type="text/css" media="screen"
-			href="/resources/styles/employees/list.css" />
+		href="/resources/styles/employees/list.css" />
 
 	<spring:message code="label_employee_list" var="labelEmployeeList" />
 	<spring:message code="label_employee_id" var="labelEmployeeId" />
@@ -19,38 +20,50 @@
 		var="labelEmployeeAccount" />
 	<spring:message code="label_employee_account_status"
 		var="labelEmployeeAccountStatus" />
-		
-	<spring:url value="/employees" var="showEmployeeUrl"/>
+	<spring:message code="label_employee_account_balance"
+		var="labelEmployeeAccountBalance" />
+
+	<spring:url value="/employees" var="showEmployeeUrl" />
+	<script type="text/javascript" src="/resources/js/jquery/jquery-1.8.3.min.js" ><!-- alright --></script>
+	
+	
 
 	<h1 id="body-title">${labelEmployeeList }</h1>
 
 	<c:if test="${not empty employees }">
 		<div id="list-wrapper">
-		<table id="employees_list">
-			<thead>
-				<tr>
-					<th>${labelEmployeeId }</th>
-					<th>${labelEmployeeFullname}</th>
-					<th>${labelEmployeeStatus}</th>
-					<th>${labelEmployeeAccount}</th>
-					<th>${labelEmployeeAccountStatus}</th>
-				</tr>
-			</thead>
-			<TBODY>
-				<c:forEach items="${employees }" var="employee">
+			<table id="employees_list">
+				<thead>
 					<tr>
-						<td>${employee.id }</td>
-						<td><a href="${showEmployeeUrl}/${employee.id}">${employee.fullname }</a></td>
-						<td>${employee.stateFlag }</td>
-						<td>${employee.account.username }</td>
-						<td>${employee.account.stateFlag }</td>
+						<th>${labelEmployeeId }</th>
+						<th>${labelEmployeeFullname}</th>
+						<th>${labelEmployeeStatus}</th>
+						<th>${labelEmployeeAccount}</th>
+						<th>${labelEmployeeAccountStatus}</th>
+						<th>${labelEmployeeAccountBalance}</th>
 					</tr>
-				</c:forEach>
-			</TBODY>
-		</table>
-		
-		</div>
-		
-	</c:if>
+				</thead>
+				<TBODY>
 
+					<c:forEach items="${employees }" var="employee" varStatus="ss">
+						<tr>
+							<td>${employee.id }</td>
+							<td><a href="${showEmployeeUrl}/${employee.id}">${employee.fullname }</a></td>
+							<td>${employee.stateFlag }</td>
+							<td>${employee.account.username }</td>
+							<td>${employee.account.stateFlag }</td>
+							<td><fmt:formatNumber type="number"
+									pattern="#,##0.00;(#,##0.00)"
+									value="${employee.account.balance}" /></td>
+						</tr>
+					</c:forEach>
+				</TBODY>
+			</table>
+
+		</div>
+
+	</c:if>
+	
+	<!-- javascript -->
+	
 </div>
