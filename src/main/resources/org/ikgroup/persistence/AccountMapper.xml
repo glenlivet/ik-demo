@@ -44,14 +44,10 @@
     <update id="update" parameterType="Account">
         UPDATE ACCOUNT SET 
         <if test="password != null">
-        PASSWORD = #{password}
+        PASSWORD = #{password},
         </if>
-        <if test="stateFlag != null">
-        STATE_FLAG = #{stateFlag}
-        </if>
-        <if test="balance != null">
+        STATE_FLAG = #{stateFlag},
         BALANCE = #{balance}
-        </if>
         WHERE ID = #{id}
     </update>
     
