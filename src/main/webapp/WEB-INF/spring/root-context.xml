@@ -51,7 +51,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 	<import resource="mybatis-conf.xml" />
 	<import resource="procedure-conf.xml" />
-	<import resource="activiti-conf.xml" />
+<!-- 	<import resource="activiti-conf.xml" /> -->
 	<import resource="security-context.xml" />
 	<import resource="test-conf.xml" />
 </beans>

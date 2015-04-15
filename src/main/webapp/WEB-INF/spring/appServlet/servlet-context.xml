@@ -65,5 +65,14 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<beans:bean class="org.springframework.web.servlet.theme.CookieThemeResolver"
 		id="themeResolver" p:cookieName="theme" p:defaultThemeName="standard" />
+		
+	<!-- 定义custom PropertyEditors -->
+	<beans:bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<beans:property name="customEditors">
+			<beans:map>
+				<beans:entry key="org.ikgroup.domain.BindingProperty" value="org.ikgroup.editor.BindingPropertyEditor"/>
+			</beans:map>
+		</beans:property>
+	</beans:bean>
 
 </beans:beans>

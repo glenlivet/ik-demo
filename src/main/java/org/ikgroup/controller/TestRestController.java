@@ -3,6 +3,8 @@ package org.ikgroup.controller;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.ikgroup.domain.BindingDomain;
+import org.ikgroup.domain.BindingProperty;
 import org.ikgroup.domain.TestConvDomain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,5 +35,16 @@ public class TestRestController {
 		logger.info("Birthday: " + birthday);
 //		logger.info("Birthday: " + "aaaaaaaaa");
 	}
-
+	
+	@RequestMapping(value = "/binding", method = RequestMethod.POST)
+	@ResponseBody
+	public void binding(BindingDomain bindingDomain){
+		logger.info(bindingDomain.toString());
+	}
+	
+	@RequestMapping(value = "/binding2", method = RequestMethod.POST)
+	@ResponseBody
+	public void binding(BindingProperty bindingProperty){
+		logger.info(bindingProperty.toString());
+	}
 }

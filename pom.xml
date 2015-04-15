@@ -244,17 +244,17 @@
 <!-- 		</dependency> -->
 	
 
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-engine</artifactId>
-			<version>${org.activiti.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.activiti</groupId> -->
+<!-- 			<artifactId>activiti-engine</artifactId> -->
+<!-- 			<version>${org.activiti.version}</version> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-spring</artifactId>
-			<version>${org.activiti.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.activiti</groupId> -->
+<!-- 			<artifactId>activiti-spring</artifactId> -->
+<!-- 			<version>${org.activiti.version}</version> -->
+<!-- 		</dependency> -->
 
 <!-- 		<dependency> -->
 <!-- 			<groupId>org.ikgroup</groupId> -->
